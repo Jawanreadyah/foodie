@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Light Theme Palette */
+  --bg-color: #f7f9fa; /* Light gray background */
+  --surface-color: #ffffff; /* Solid white surfaces */
+  --surface-border: #e2e8f0; /* Light gray border */
+  
+  /* Brand Colors */
+  --primary: #FF5A00; /* Sunny Orange */
+  --primary-hover: #e04f00;
+  --secondary: #0F4C5C; /* True Petrol */
+  --warning: #f59e0b;
+  
+  /* Text */
+  --text-main: #1f2937;
+  --text-muted: #8d99ae; /* Calm Grey */
+  
+  /* Effects */
+  --glass-blur: blur(8px);
+  --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-orange: 0 8px 16px rgba(255, 107, 0, 0.2);
+  
+  /* Spacing */
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--bg-color);
+  background-attachment: fixed;
+}
+
+/* Base Panel & Card Utilities - Replacing pure glassmorphism with clean light styles */
+.glass-panel {
+  background: var(--surface-color);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.glass-card {
+  background: var(--surface-color);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Base App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 80px; /* Space for bottom nav */
+}
+
+@media (min-width: 769px) {
+  .app-container {
+    padding-bottom: 0;
+  }
+}
+
+/* Micro-animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-orange);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: var(--text-main);
+  border: 1px solid var(--surface-border);
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+/* Inputs */
+.input-glass {
+  background: var(--surface-color);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.input-glass:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.15);
+}
+
+.input-glass::placeholder {
+  color: var(--text-muted);
+}

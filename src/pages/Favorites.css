@@ -1,0 +1,48 @@
+.favorites-page {
+  padding: 20px;
+  padding-bottom: 100px;
+  min-height: 100vh;
+}
+
+.favorites-header {
+  margin-bottom: 24px;
+}
+
+.favorites-header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--primary);
+}
+
+.fav-tabs {
+  display: flex;
+  background: var(--surface-color);
+  padding: 4px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 24px;
+}
+
+.fav-tab {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fav-tab.active {
+  background: var(--surface-color-solid);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.no-favs {
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  color: var(--text-muted);
+}

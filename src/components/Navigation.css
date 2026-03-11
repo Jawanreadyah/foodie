@@ -1,0 +1,78 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  z-index: 1000;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 20px 20px 0 0;
+  padding: 0 max(env(safe-area-inset-right), 1rem); /* iPhone safe area */
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-items-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 8px;
+  min-width: 60px;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-item span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  position: absolute;
+  bottom: -10px;
+}
+
+.nav-item.active {
+  color: var(--primary);
+}
+
+.nav-item.active .nav-icon {
+  transform: translateY(-8px) scale(1.1);
+}
+
+.nav-item.active span {
+  opacity: 1;
+  transform: translateY(0);
+  bottom: 4px;
+}
+
+.nav-item:hover:not(.active) {
+  color: #fff;
+}
+
+/* Hide bottom nav on desktop */
+@media (min-width: 769px) {
+  .bottom-nav {
+    display: none;
+  }
+}
